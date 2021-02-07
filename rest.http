@@ -1,0 +1,11 @@
+### GET 
+GET http://localhost:3001/
+
+###P OST
+POST http://localhost:3001/
+
+### PUT
+PUT http://localhost:3001/
+
+###PDELETE
+DELETE http://localhost:3001/

@@ -1,11 +1,41 @@
 ### GET 
-GET http://localhost:3001/
+GET http://localhost:3001/jack/supak?number=12345
 
 ###P OST
 POST http://localhost:3001/
+Content-Type: application/json
+
+{
+    "message":"Hello from post body"
+}
 
 ### PUT
 PUT http://localhost:3001/
 
 ###PDELETE
 DELETE http://localhost:3001/
+
+### Select form todo
+GET http://localhost:3001/todo
+
+
+### insert todo
+POST http://localhost:3001/todo
+Content-Type: application/json
+
+{
+    "name":"test insert",
+    "discription":"test dis"
+}
+
+### update todo
+PUT http://localhost:3001/todo/1
+Content-Type: application/json
+
+{
+    "name":"123456",
+    "discription":"test dis fff"
+}
+
+### delete todo
+DELETE http://localhost:3001/todo/2

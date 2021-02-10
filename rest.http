@@ -24,12 +24,12 @@ POST http://localhost:3001/todo
 Content-Type: application/json
 
 {
-    "name":"test insert",
-    "discription":"test dis"
+    "name":"ererere",
+    "discription":"test dis asdsa"
 }
 
 ### update todo
-PUT http://localhost:3001/todo/1
+PUT http://localhost:3001/todo/6
 Content-Type: application/json
 
 {
@@ -38,4 +38,4 @@ Content-Type: application/json
 }
 
 ### delete todo
-DELETE http://localhost:3001/todo/2
+DELETE http://localhost:3001/todo/6

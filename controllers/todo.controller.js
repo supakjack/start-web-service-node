@@ -1,24 +1,41 @@
-const knex = require('./../helpers/initKnex')
+const todoModel = require('./../models/todo.model')
+const createError = require('http-errors')
 
 module.exports = {
   select: async (req, res, next) => {
-    const doesSelect = await knex.select(req.query.filter).from('todos')
-    res.send(doesSelect)
+    try {
+      const doesSelect = await todoModel.select(req)
+      res.send(doesSelect)
+    } catch (error) {
+      console.log(error)
+      next(createError.InternalServerError())
+    }
   },
   insert: async (req, res, next) => {
-    const doesInsert = await knex('todos').insert(req.body)
-    res.send(doesInsert)
+    try {
+      const doesInsert = await todoModel.insert(req)
+      res.send(doesInsert)
+    } catch (error) {
+      console.log(error)
+      next(createError.InternalServerError())
+    }
   },
   update: async (req, res, next) => {
-    const id = req.params.id
-    const doesUpdate = await knex('todos').where({id})  // {id : id}
-    .update(req.body)
-    res.send({doesUpdate})
+    try {
+      const doesUpdate = await todoModel.update(req)
+      res.send({ doesUpdate })
+    } catch (error) {
+      console.log(error)
+      next(createError.InternalServerError())
+    }
   },
   delete: async (req, res, next) => {
-    const id = req.params.id
-    const doesDelete = await knex('todos').where({id})  // {id : id}
-    .del()
-    res.send({doesDelete})
-  },
+    try {
+      const doesDelete = await todoModel.delete(req)
+      res.send({ doesDelete })
+    } catch (error) {
+      console.log(error)
+      next(createError.InternalServerError())
+    }
+  }
 }
